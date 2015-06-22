@@ -115,7 +115,7 @@ namespace OpenTKTest1
         }
 
 
-        // load a named sprite or library from the database
+        // load a nam3245ed sprite or library from the database
         public void LoadSprite(String spriteName, UInt16 flags)
         {
             int size;
@@ -128,8 +128,9 @@ namespace OpenTKTest1
             spriteBuffer = new byte[data.Length-6];
 
             for (int i = 0; i < spriteBuffer.Length; i++)
-                spriteBuffer[i] = data[i+6];
-//            data.CopyTo(spriteBuffer,6,);
+            {
+                spriteBuffer[i] = data[i + 6];
+            }
 
             align = 4 - (flags & 7);
 
@@ -139,9 +140,13 @@ namespace OpenTKTest1
             maxn = numFrames * 2;
 
             if ((flags & 0x08) != 0)
+            {
                 nadd = 1;
+            }
             else
-                nadd = 2;
+            {
+                nadd = 2; 
+            }
 
             seqSize = size * maxn * (align / 2);
             fullSize = size * maxn * ((align / 2) + 1);
@@ -156,14 +161,6 @@ namespace OpenTKTest1
             {
                 bmp[n] = new Bitmap(xSize, ySize, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 bmp_silhouette[n] = new Bitmap(xSize, ySize, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                //                ColorPalette pal = bmp[n].Palette;
-
-//                for (int i = 0; i < pal.Entries.Length; i++)
-//                {
-//                    pal.Entries[i] = Color.FromArgb(255, standardpal[i].r, standardpal[i].g, standardpal[i].b);
-//                }
-
-
 
                 for (int y=0; y < ySize; y++)
                 {
@@ -173,9 +170,13 @@ namespace OpenTKTest1
                         Color col = Color.FromArgb(myPalette[value].r, myPalette[value].g, myPalette[value].b);
                         bmp[n].SetPixel(x, y, col);
                         if (value != 0)
-                            bmp_silhouette[n].SetPixel(x, y, flash);
+                        {
+                            bmp_silhouette[n].SetPixel(x, y, flash); 
+                        }
                         else
-                            bmp_silhouette[n].SetPixel(x, y, Color.Black);
+                        {
+                            bmp_silhouette[n].SetPixel(x, y, Color.Black); 
+                        }
                     }
 
                     dataPos += xSize;
@@ -212,15 +213,5 @@ namespace OpenTKTest1
         }
     }
 
-    class SpriteLibrary
-    {
-        private Sprite sprite;
-
-        public SpriteLibrary(Sprite spr)
-        {
-            sprite = spr;
-        }
-
-    }
 
 }

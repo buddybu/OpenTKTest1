@@ -15,14 +15,6 @@ namespace OpenTKTest1
         [STAThread]
         public static void Main()
         {
-            byte[] menuBuffer;
-            String mb = "FONT1.SPR";
-            fileman fm = new fileman("BEER.DAT");
-
-            fm.LoadFile(mb, out menuBuffer);
-            Sprite tspr = new Sprite(fm);
-            tspr.LoadSprite(mb, 2);
-
 //            using (var game = new GameWindow())
             using (MyApplication app = new MyApplication())
             {

@@ -35,10 +35,13 @@ namespace OpenTKTest1
             windowY0 = YMIN;
             windowX1 = XMAX; 
             windowY1 = YMAX;
-            OpenTK.Graph
-            pages = new Bitmap[PAGES];
+
             fullPages = new Bitmap[PAGES];
+
+            pages[0] = fullPages[0].Clone();
+            pages[1] = fullPages[1].Clone();
         }
     
+
     }
 }
